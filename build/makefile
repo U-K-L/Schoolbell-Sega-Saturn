@@ -63,6 +63,6 @@ $(TARGET2): $(TARGET1)
 	$(CC) $< $(DFLAGS) $(CCFLAGS) $(_CCFLAGS) -o $@
 
 clean:
-	$(RM) $(OBJS) $(TARGET) $(TARGET1) $(TARGET2) $(MPFILE) ../cd/0.bin
+	$(RM) $(OBJS) $(TARGET) $(TARGET1) $(TARGET2) $(MPFILE) cd/0.bin
 
 re: clean all
