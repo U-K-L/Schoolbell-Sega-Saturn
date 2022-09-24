@@ -1,0 +1,1 @@
+This file exists so that git will keep track of it. The compiler will place a bin in here then proceed to load it at a different point. Afterwards the file is cleaned up, making this folder seemingly empty.
