@@ -1,5 +1,5 @@
 @ECHO Off
-SET COMPILER_DIR=..\..\..\Compiler
+SET COMPILER_DIR=..\..\Compiler
 SET PATH=%COMPILER_DIR%\SH_COFF\Other Utilities;%PATH%
 
 rm -f ./cd/0.bin

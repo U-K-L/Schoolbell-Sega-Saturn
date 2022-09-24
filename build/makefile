@@ -1,8 +1,8 @@
 INCLUDES = .
 
-COMPILER_DIR = ../../../Tools/Compiler
+COMPILER_DIR = ../../Tools/Compiler
 
-SRCS = ../ZTE/workarea.c ../source/main.c 
+SRCS = ../../Tools/Engine/ZTE/workarea.c ../src/source/main.c 
 
 SYSOBJS =
 
