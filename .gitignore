@@ -40,7 +40,6 @@
 *.cue
 *.iso
 *.coff
-*.bat
 
 # Debug files
 *.dSYM/
@@ -59,7 +58,4 @@ Mkfile.old
 dkms.conf
 
 # Specific folders
-src/cd
 src/ZTE
-src/makefile
-src/build
