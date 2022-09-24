@@ -38,7 +38,7 @@ LDFLAGS +=-Xlinker --format=coff-sh -Xlinker -T$(LDFILE) -Xlinker -Map \
           -Xlinker $(MPFILE) -Xlinker -e -Xlinker ___Start -nostartfiles
 DFLAGS =
 
-TARGET   = sl_coff.coff
+TARGET   = SCHOOL-BELL.coff
 TARGET1  = $(TARGET:.coff=.bin)
 TARGET2  = $(TARGET:.coff=.iso)
 MPFILE   = $(TARGET:.coff=.map)
@@ -57,7 +57,7 @@ $(TARGET1) : $(SYSOBJS) $(OBJS) $(MAKEFILE) $(LDFILE)
 
 $(TARGET2): $(TARGET1)
 	$(CONV) -O binary $(TARGET) cd/0.bin
-	mkisofs -quiet -sysid "SEGA SATURN" -volid "SONIC Z-TREME" -volset "SONIC Z-TREME" -publisher "Z-TREME ENGINE BY XL2" -preparer "Z-TREME ENGINE BY XL2" -appid "SONIC Z-TREME" -abstract "ABS.TXT" -copyright "CPY.TXT" -biblio "BIB.TXT" -generic-boot $(IPFILE) -full-iso9660-filenames -o $(TARGET2) cd
+	mkisofs -quiet -sysid "SEGA SATURN" -volid "SCHOOL-BELL" -volset "SCHOOL-BELL" -publisher "Unigma" -preparer "Unigma" -appid "SCHOOL-BELL" -abstract "ABS.TXT" -copyright "CPY.TXT" -biblio "BIB.TXT" -generic-boot $(IPFILE) -full-iso9660-filenames -o $(TARGET2) cd
 
 .c.o:
 	$(CC) $< $(DFLAGS) $(CCFLAGS) $(_CCFLAGS) -o $@

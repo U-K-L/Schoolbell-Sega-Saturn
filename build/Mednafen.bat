@@ -1,2 +1,2 @@
-..\..\Tools\Emulators\mednafen\mednafen.exe "sl_coff.cue"
+..\..\Tools\Emulators\mednafen\mednafen.exe "SCHOOL-BELL.cue"
 PAUSE
