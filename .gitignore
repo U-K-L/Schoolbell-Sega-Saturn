@@ -35,12 +35,19 @@
 *.i*86
 *.x86_64
 *.hex
+*.bin
+*.elf
+*.cue
+*.iso
+*.coff
+*.bat
 
 # Debug files
 *.dSYM/
 *.su
 *.idb
 *.pdb
+
 
 # Kernel Module Compile Results
 *.mod*
@@ -50,3 +57,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Specific folders
+src/cd
+src/ZTE
+src/makefile
+src/build
