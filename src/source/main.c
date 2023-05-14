@@ -1,15 +1,18 @@
-#include "sgl.h"
+#include "../headers/sprite.h"
 
 int main(void)
 {
+
     slInitSystem(TV_320x224, NULL, 1);
-    
+    struct Sprite sprite;
+    initializeSprite(&sprite);
     // Game Loop.
-	while(1)
+	while(-1)
 	{
-        slPrint("Hello World", slLocate(0,0));
+        renderSprite(&sprite);
+        slPopMatrix();
+        slSynch();
 	}
-    
     //End Program
 	return 0;
 }

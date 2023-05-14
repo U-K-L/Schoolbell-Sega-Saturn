@@ -2,14 +2,15 @@ INCLUDES = .
 
 COMPILER_DIR = ../../Tools/Compiler
 
-SRCS = ../../Tools/Engine/ZTE/workarea.c ../src/source/main.c 
+SRCS = ../../Tools/Engine/ZTE/workarea.c $(wildcard ../src/source/*.c)
 
 SYSOBJS =
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(filter %.o, $(SRCS:.s=.o) $(SRCS:.c=.o) $(SRCS:.cpp=.o))
 
 LIBS +=  $(SGLLDR)/SEGA_SYS.A $(SGLLDR)/LIBCD.A $(SGLLDR)/LIBSGL.A $(SGLLDR)/LIBSND.A $(SGLLDR)/LIBMEM.A
 
+AS = sh-$(OBJFMT)-as
 CC = sh-coff-gcc
 CONV = sh-coff-objcopy
 RM = rm -f
@@ -26,10 +27,9 @@ CCFLAGS += -fkeep-inline-functions -W -Wall -Wshadow -Wbad-function-cast -Winlin
 --param max-inline-insns-single=50 -fms-extensions -std=gnu99 \
 -fmerge-all-constants -fno-ident -ffunction-sections -fdata-sections -fno-unwind-tables -fno-asynchronous-unwind-tables \
 -fomit-frame-pointer -fstrength-reduce -frerun-loop-opt -Os -nodefaultlibs -nostdlib -fno-builtin \
--m2 -c -I$(INCLUDES)
+-m2 -c -I -S$(INCLUDES)
 
 CCFLAGS += -I$(SGLIDR)
-
 
 LDFLAGS = -m2
 LDFLAGS += -L$(SGLLDR)
@@ -58,6 +58,8 @@ $(TARGET1) : $(SYSOBJS) $(OBJS) $(MAKEFILE) $(LDFILE)
 $(TARGET2): $(TARGET1)
 	$(CONV) -O binary $(TARGET) cd/0.bin
 	mkisofs -quiet -sysid "SEGA SATURN" -volid "SCHOOL-BELL" -volset "SCHOOL-BELL" -publisher "Unigma" -preparer "Unigma" -appid "SCHOOL-BELL" -abstract "ABS.TXT" -copyright "CPY.TXT" -biblio "BIB.TXT" -generic-boot $(IPFILE) -full-iso9660-filenames -o $(TARGET2) cd
+
+.SUFFIXES: .asm
 
 .c.o:
 	$(CC) $< $(DFLAGS) $(CCFLAGS) $(_CCFLAGS) -o $@
