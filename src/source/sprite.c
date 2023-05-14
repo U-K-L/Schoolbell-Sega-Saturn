@@ -21,3 +21,17 @@ void renderSprite(struct Sprite *sprite)
         slPutPolygon(&PD_PLANE1);
     }
 }
+
+void translateSpritePosition(struct Sprite *sprite, int pos[XYZ])
+{
+    sprite->pos[X] += pos[X];
+    sprite->pos[Y] += pos[Y]; 
+    sprite->pos[Z] += pos[Z]; 
+}
+
+void setSpritePosition(struct Sprite *sprite, int pos[XYZ])
+{
+    sprite->pos[X] = pos[X];
+    sprite->pos[Y] = pos[Y]; 
+    sprite->pos[Z] = pos[Z]; 
+}
