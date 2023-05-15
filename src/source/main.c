@@ -1,5 +1,6 @@
 #include "../headers/sprite.h"
 #include "../headers/utils.h"
+#include "../headers/input.h"
 
 int main(void)
 {
@@ -13,13 +14,19 @@ int main(void)
     // Game Loop.
 	while(-1)
 	{
+
         TIME += 1;
         slPrintFX(TIME, slLocate(0,0));
         int newPos[XYZ] = {x,y,toFIXED(220.0)};
         setSpritePosition(&sprite, newPos);
         renderSprite(&sprite);
-        x = 50*slCos(TIME*1000);
-        y = 50*slSin(TIME*1000);
+
+        if(CheckInput(PER_DGT_KU) == 0)
+        {
+            x = 50*slCos(TIME*1000);
+            y = 50*slSin(TIME*1000);
+        }
+
         slPopMatrix();
         slSynch();
 	}
