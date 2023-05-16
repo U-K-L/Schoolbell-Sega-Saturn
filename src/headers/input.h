@@ -1,4 +1,6 @@
 #include "sgl.h"
+#include "stdarg.h"
+#include "stdbool.h"
 
 static Uint16 PAD_BUTTONS[]={
 PER_DGT_KU,
@@ -16,13 +18,26 @@ PER_DGT_TR,
 PER_DGT_TL,
 };
 
-int CheckInput(Uint16 button)
+bool CheckInputs(Uint8 player, int buttonsCount, ...)
 {
     //Let's factor this out to something more generic but keep it in as a guard clause for now.
     if(!Per_Connect1)return;
 
-    Uint16 pad_input;
-    pad_input = Smpc_Peripheral[0].data;
 
-    return button & pad_input;
+    va_list list;
+    va_start(list, buttonsCount);
+    Uint16 button = (Uint16)va_arg(list, int);
+    for(int i = 1; i < buttonsCount; i++)
+    {
+        button ^= (Uint16)va_arg(list, int);
+    }
+
+
+    Uint16 pad_input;
+    pad_input = Smpc_Peripheral[player].data;
+
+    Uint16 result = button & pad_input;
+    va_end(list);
+
+    return result == 0;
 }
