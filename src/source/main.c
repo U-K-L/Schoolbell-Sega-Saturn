@@ -23,8 +23,8 @@ int main(void)
 
         if(CheckInputs(0, 1, PER_DGT_TR) || CheckInputs(0, 1, PER_DGT_TL))
         {
-            x = 50*slCos(TIME*1000);
-            y = 50*slSin(TIME*1000);
+            x += 4*slCos(TIME*1000);
+            y += 4*slSin(TIME*1000);
         }
 
         if(CheckInputs(0, 1, PER_DGT_KR))
@@ -32,9 +32,9 @@ int main(void)
         if(CheckInputs(0,1,PER_DGT_KL))
             x -= toFIXED(5);
         if(CheckInputs(0, 1, PER_DGT_KU))
-            y += toFIXED(5);
-        if(CheckInputs(0,1,PER_DGT_KD))
             y -= toFIXED(5);
+        if(CheckInputs(0,1,PER_DGT_KD))
+            y += toFIXED(5);
 
         slPopMatrix();
         slSynch();
