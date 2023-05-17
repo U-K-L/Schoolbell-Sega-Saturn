@@ -10,6 +10,9 @@ int main(void)
     initializeSprite(&sprite);
     int x = 0;
     int y = 0;
+    int angleX = 0;
+    int angleY = 0;
+    int angleZ = 0;
 
     // Game Loop.
 	while(-1)
@@ -18,10 +21,27 @@ int main(void)
         TIME += 1;
         
         int newPos[XYZ] = {x,y,toFIXED(220.0)};
+        int angles[XYZ] = {angleX, angleY, angleZ};
         setSpritePosition(&sprite, newPos);
+        setSpriteRotation(&sprite, angles);
         renderSprite(&sprite);
 
-        if(CheckInputs(0, 1, PER_DGT_TR) || CheckInputs(0, 1, PER_DGT_TL))
+        if(CheckInputs(0, 2, PER_DGT_TL, PER_DGT_KU))
+        {
+            angleZ += DEGtoANG(100.0);
+        }
+
+        if(CheckInputs(0, 2, PER_DGT_TL, PER_DGT_KD))
+        {
+            angleY += DEGtoANG(100.0);
+        }
+
+        if(CheckInputs(0, 2, PER_DGT_TL, PER_DGT_KL) || CheckInputs(0, 2, PER_DGT_TL, PER_DGT_KR))
+        {
+            angleX += DEGtoANG(100.0);
+        }
+
+        if(CheckInputs(0, 1, PER_DGT_TR))
         {
             x += 4*slCos(TIME*1000);
             y += 4*slSin(TIME*1000);

@@ -1,4 +1,6 @@
 #include "../headers/sprite.h"
+#include "../headers/polygon.h"
+#include "../headers/cube.h"
 
 void initializeSprite(struct Sprite *sprite)
 {
@@ -18,7 +20,7 @@ void renderSprite(struct Sprite *sprite)
         slRotX(sprite->angle[X]);
         slRotY(sprite->angle[Y]);
         slRotZ(sprite->angle[Z]);
-        slPutPolygon(&PD_PLANE1);
+        slPutPolygon(&CUBE);
     }
 }
 
@@ -34,4 +36,11 @@ void setSpritePosition(struct Sprite *sprite, int pos[XYZ])
     sprite->pos[X] = pos[X];
     sprite->pos[Y] = pos[Y]; 
     sprite->pos[Z] = pos[Z]; 
+}
+
+void setSpriteRotation(struct Sprite *sprite, int angle[XYZ])
+{
+    sprite->angle[X] = angle[X];
+    sprite->angle[Y] = angle[Y]; 
+    sprite->angle[Z] = angle[Z]; 
 }
