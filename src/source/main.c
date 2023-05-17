@@ -10,6 +10,7 @@ int main(void)
     initializeSprite(&sprite);
     int x = 0;
     int y = 0;
+    //int z = toFIXED(220.0);
     int angleX = 0;
     int angleY = 0;
     int angleZ = 0;
@@ -19,7 +20,7 @@ int main(void)
 	{
 
         TIME += 1;
-        
+        //x =slMulFX(toFIXED(z),x);
         int newPos[XYZ] = {x,y,toFIXED(220.0)};
         int angles[XYZ] = {angleX, angleY, angleZ};
         setSpritePosition(&sprite, newPos);
@@ -40,6 +41,7 @@ int main(void)
         {
             angleX += DEGtoANG(100.0);
         }
+        /*
 
         if(CheckInputs(0, 1, PER_DGT_TR))
         {
@@ -55,7 +57,7 @@ int main(void)
             y -= toFIXED(5);
         if(CheckInputs(0,1,PER_DGT_KD))
             y += toFIXED(5);
-
+*/
         slPopMatrix();
         slSynch();
 	}
