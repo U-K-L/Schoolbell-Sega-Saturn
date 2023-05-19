@@ -2,7 +2,7 @@ INCLUDES = .
 
 COMPILER_DIR = ../../Tools/Compiler
 
-SRCS = ../../Tools/Engine/ZTE/workarea.c $(wildcard ../src/source/*.c)
+SRCS = ../../Tools/Engine/ZTE/workarea.c $(wildcard ../src/source/*.c) $(wildcard ../src/TestSamples/*.c)
 
 SYSOBJS =
 
