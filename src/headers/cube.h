@@ -25,8 +25,5 @@ ATTRIBUTE(Dual_Plane,SORT_MAX,No_Texture,C_RGB(00,31,00),No_Gouraud,MESHoff,sprP
 ATTRIBUTE(Dual_Plane,SORT_MAX,No_Texture,C_RGB(00,00,31),No_Gouraud,MESHoff,sprPolygon,No_Option),
 ATTRIBUTE(Dual_Plane,SORT_MAX,No_Texture,C_RGB(31,31,00),No_Gouraud,MESHoff,sprPolygon,No_Option),
 ATTRIBUTE(Dual_Plane,SORT_MAX,No_Texture,C_RGB(00,31,31),No_Gouraud,MESHoff,sprPolygon,No_Option),};
-PDATA CUBE={point_plane,
-sizeof(point_plane)/sizeof(POINT),
-polygon_plane,
-sizeof(polygon_plane)/sizeof(POLYGON),
-attribute_plane};
+
+PDATA CUBE={point_plane, sizeof(point_plane)/sizeof(POINT), polygon_plane, sizeof(polygon_plane)/sizeof(POLYGON), attribute_plane};

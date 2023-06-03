@@ -1,6 +1,7 @@
 #include "../headers/sprite.h"
 #include "../headers/polygon.h"
 #include "../headers/cube.h"
+#include "../headers/magnusTest.h"
 
 void initializeSprite(struct Sprite *sprite)
 {
@@ -20,7 +21,7 @@ void renderSprite(struct Sprite *sprite)
         slRotX(sprite->angle[X]);
         slRotY(sprite->angle[Y]);
         slRotZ(sprite->angle[Z]);
-        slPutPolygon(&CUBE);
+        slPutPolygon(&MAGNUS);
     }
 }
 
