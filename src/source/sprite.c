@@ -1,7 +1,9 @@
 #include "../headers/sprite.h"
 #include "../headers/polygon.h"
 #include "../headers/cube.h"
+#include "../headers/cubecube.h"
 #include "../headers/magnusTest.h"
+#include "../headers/monkeyHead.h"
 
 void initializeSprite(struct Sprite *sprite)
 {
@@ -9,7 +11,7 @@ void initializeSprite(struct Sprite *sprite)
     sprite->angle[X] = sprite->angle[Y] = sprite->angle[Z] = DEGtoANG(0.0);
     //Initialize position
     sprite->pos[X] = sprite->pos[Y] = sprite->pos[Z] = toFIXED(0.0);
-    sprite->pos[Z] = toFIXED(220.0);
+    sprite->pos[Z] = toFIXED(0.0);
 }
 
 void renderSprite(struct Sprite *sprite)
@@ -21,7 +23,7 @@ void renderSprite(struct Sprite *sprite)
         slRotX(sprite->angle[X]);
         slRotY(sprite->angle[Y]);
         slRotZ(sprite->angle[Z]);
-        slPutPolygon(&MAGNUS);
+        slPutPolygon(&XPD_Suzanne);
     }
 }
 
